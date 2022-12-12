@@ -537,7 +537,7 @@ var _app = require("./classes/app");
 var _mainCss = require("./styles/main.css");
 new (0, _app.App)((0, _model.model));
 
-},{"./model":"dEDha","./styles/main.css":"clPKd","./classes/app":"g9LQJ"}],"dEDha":[function(require,module,exports) {
+},{"./model":"dEDha","./classes/app":"g9LQJ","./styles/main.css":"clPKd"}],"dEDha":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "model", ()=>model);
@@ -563,7 +563,7 @@ const model = [
         },
         imageStyles: {
             width: "300px",
-            height: "auto"
+            height: "300px"
         },
         alt: "Это картинка"
     }),
@@ -587,37 +587,7 @@ const model = [
     })
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./assets/image.png":"ljha9","./classes/blocks":"gMfMj","@eastdesire/jscolor":"g7p4G"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"ljha9":[function(require,module,exports) {
+},{"./assets/image.png":"ljha9","./classes/blocks":"gMfMj","@eastdesire/jscolor":"g7p4G","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ljha9":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "image.513edb25.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -708,7 +678,7 @@ class ImageBlock extends Block {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./../utils":"en4he"}],"en4he":[function(require,module,exports) {
+},{"./../utils":"en4he","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"en4he":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "row", ()=>row);
@@ -871,7 +841,37 @@ function ColumnsHTML(type) {
   `;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g7p4G":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"g7p4G":[function(require,module,exports) {
 /**
  * jscolor - JavaScript Color Picker
  *
@@ -3412,7 +3412,7 @@ function ColumnsHTML(type) {
     return jscolor;
 }); // END factory
 
-},{}],"clPKd":[function() {},{}],"g9LQJ":[function(require,module,exports) {
+},{}],"g9LQJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "App", ()=>App);
@@ -3434,7 +3434,23 @@ class App {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./sidebar":"5YCBk","./site":"24VTm"}],"5YCBk":[function(require,module,exports) {
+},{"./site":"24VTm","./sidebar":"5YCBk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"24VTm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Site", ()=>Site);
+class Site {
+    constructor(selector){
+        this.$el = document.querySelector(selector);
+    }
+    render(model) {
+        this.$el.innerHTML = "";
+        model.forEach((block)=>{
+            site.insertAdjacentHTML("beforeend", block.toHTML());
+        });
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5YCBk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Sidebar", ()=>Sidebar);
@@ -3536,22 +3552,6 @@ class Sidebar {
     }
 }
 
-},{"../utils":"en4he","./blocks":"gMfMj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"24VTm":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Site", ()=>Site);
-class Site {
-    constructor(selector){
-        this.$el = document.querySelector(selector);
-    }
-    render(model) {
-        this.$el.innerHTML = "";
-        model.forEach((block)=>{
-            site.insertAdjacentHTML("beforeend", block.toHTML());
-        });
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire5634")
+},{"../utils":"en4he","./blocks":"gMfMj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"clPKd":[function() {},{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire5634")
 
 //# sourceMappingURL=index.975ef6c8.js.map
