@@ -1,0 +1,33 @@
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap";
+*, :after, :before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans, sans-serif;
+}
+
+#app {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  right: 0;
+}
+
+.sidebar {
+  width: 250px;
+  z-index: 100;
+  background: #cfd1e9;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  box-shadow: inset -1px 0 #0000001a;
+}
+
+/*# sourceMappingURL=index.5525e4b8.css.map */
